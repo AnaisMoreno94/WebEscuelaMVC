@@ -97,7 +97,7 @@ namespace WebEscuelaMVC.Controllers
                 contex.SaveChanges();
                 return RedirectToAction("Detalle", aula.Id);
             }
-            else return View("edit", aula);
+            else return View("Detalle", aula.Id);
         }
     }
 }
