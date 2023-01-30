@@ -88,9 +88,8 @@ namespace WebEscuelaMVC.Controllers
             else return View("Edit", aula);
         }
         [HttpPost]
-        public ActionResult Edit(int id, Aula aula) 
+        public ActionResult Edit(Aula aula) 
         {
-            if (id != aula.Id) { return BadRequest(); }
             if (ModelState.IsValid)
             {
                 contex.Entry(aula).State = EntityState.Modified;
