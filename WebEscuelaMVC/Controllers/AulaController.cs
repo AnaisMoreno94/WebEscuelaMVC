@@ -29,7 +29,7 @@ namespace WebEscuelaMVC.Controllers
         {
             Aula aula = new Aula();
 
-            return View("Register", aula);//Vista para crear la opera
+            return View(aula);
         }
         //Create
         [HttpPost]
@@ -41,7 +41,7 @@ namespace WebEscuelaMVC.Controllers
                 contex.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View("Register", aula);
+            return View(aula);
 
         }
 
@@ -94,9 +94,9 @@ namespace WebEscuelaMVC.Controllers
             {
                 contex.Entry(aula).State = EntityState.Modified;
                 contex.SaveChanges();
-                return RedirectToAction("Detalle", aula.Id);
+                return RedirectToAction("Detail", new {id = aula.Id });
             }
-            else return View("Detalle", aula.Id);
+            else return RedirectToAction("Edit", new { id = aula.Id }); // Consultar como puedo hacer para mostrar el mensaje del error en vez de recargar la pagina
         }
     }
 }

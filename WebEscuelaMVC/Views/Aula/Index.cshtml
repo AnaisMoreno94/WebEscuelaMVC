@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebEscuelaMVC.Models.Aula>;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @Html.ActionLink("Nuevo", "Create","Aula")
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m=> m.Numero)</th>
+            <th>@Html.DisplayNameFor(m=> m.Estado)</th>
+            <th></th>
+        </tr>
+        @foreach (var aula in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m=> aula.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> aula.Estado)
+                </td>
+                <td>
+
+                @Html.ActionLink("Detalle", "Detail", "Aula",new{id=aula.Id}) <!--Se crea el new id para que el parametro viaje con el mismo nombre que recibe en el controlador-->
+                @Html.ActionLink("Eliminar", "Delete", "Aula",new{id=aula.Id})
+                </td>
+
+            </tr>
+        }
+    </table>
+</body>
+</html>

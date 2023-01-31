@@ -1,0 +1,25 @@
+﻿@model WebEscuelaMVC.Models.Aula;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalle</title>
+</head>
+<body>
+    <h2> Ver Detalle</h2>
+    @Html.ActionLink("Volver","Index","Aula")
+
+    <p>
+        @Html.DisplayNameFor(m=> m.Numero);
+        @Html.DisplayFor(m=>m.Numero);
+    </p>
+    <p>
+        @Html.DisplayNameFor(m=> m.Estado);
+        @Html.DisplayFor(m=>m.Estado);
+    </p>
+    @Html.ActionLink("Editar","Edit","Aula",new{id=Model.Id})
+
+</body>
+</html>
